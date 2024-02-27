@@ -70,8 +70,8 @@ class HomeFragment : Fragment() {
 
             pagerAdapters = TimelinePagerAdapters(childFragmentManager)
 
-            pagerAdapters.addFragment(TlOfflineFragment(), "Offline")
-            pagerAdapters.addFragment(TlOnlineFragment(), "Online")
+            pagerAdapters.addFragment(TlOfflineFragment(), "Offline Schedule")
+//            pagerAdapters.addFragment(TlOnlineFragment(), "Online")
 
             pViewPager.adapter = pagerAdapters
 
@@ -93,7 +93,7 @@ class HomeFragment : Fragment() {
 
         database.child("homeCountdownTimer").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                timerTitle = snapshot.child("title").value.toString()
+//                timerTitle = snapshot.child("title").value.toString()
                 timerDate = Integer.parseInt(snapshot.child("date").value.toString())
                 timerHour = Integer.parseInt(snapshot.child("hour").value.toString())
                 timerMinute = Integer.parseInt(snapshot.child("minute").value.toString())

@@ -206,7 +206,7 @@ class ProfileFragment : Fragment() {
 
         // User 2 Profile On Click
         binding.user2card.setOnClickListener {
-            if (isSignedIn) {
+            if (isSignedIn) {   
                 val teamPref =
                     requireContext().getSharedPreferences("team_pref", Context.MODE_PRIVATE)
                 val teamJson = teamPref.getString("team", "")
@@ -398,13 +398,16 @@ class ProfileFragment : Fragment() {
     // check how many members are in the team and update name & avatar
     private fun updateUIwithTeam(team: Team) {
 
+        // Hide user3card and user4card by default
         binding.user3card.visibility = View.GONE
         binding.user4card.visibility = View.GONE
 
+        // Iterate through team members and update UI elements accordingly
         val teamMembers = team.members
         for (i in 0 until teamMembers.size) {
             when (i) {
                 0 -> {
+                    // Update user1name and profileImage
                     binding.user1name.text = teamMembers[i].name
                     if (teamMembers[i].avUrl.isNotEmpty()) {
                         Glide.with(requireContext()).load(teamMembers[i].avUrl)
@@ -413,6 +416,7 @@ class ProfileFragment : Fragment() {
                 }
 
                 1 -> {
+                    // Update user2name and picTeammate1
                     binding.user2name.text = teamMembers[i].name.split(" ").first()
                     if (teamMembers[i].avUrl.isNotEmpty()) {
                         Glide.with(requireContext()).load(teamMembers[i].avUrl)
@@ -421,6 +425,7 @@ class ProfileFragment : Fragment() {
                 }
 
                 2 -> {
+                    // Update user3name and picTeammate2, show user3card
                     binding.user3name.text = teamMembers[i].name.split(" ").first()
                     if (teamMembers[i].avUrl.isNotEmpty()) {
                         Glide.with(requireContext()).load(teamMembers[i].avUrl)
@@ -430,6 +435,7 @@ class ProfileFragment : Fragment() {
                 }
 
                 3 -> {
+                    // Update user4name and picTeammate3, show user4card
                     binding.user4name.text = teamMembers[i].name.split(" ").first()
                     if (teamMembers[i].avUrl.isNotEmpty()) {
                         Glide.with(requireContext()).load(teamMembers[i].avUrl)
