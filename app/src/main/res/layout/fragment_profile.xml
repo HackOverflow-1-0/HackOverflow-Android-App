@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="Hugh Jackman"
+                    android:text="Rajat Rai"
                     android:textColor="@color/drac_purple"
                     android:textSize="25sp"
                     app:fontFamily="@font/fira_code_semibold"

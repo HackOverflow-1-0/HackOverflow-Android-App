@@ -82,6 +82,11 @@ class AboutFragment : Fragment() {
         val hofLogoId = resources.getIdentifier(hofLogo, "drawable", requireContext().packageName)
         binding.hofLogo.setImageResource(hofLogoId)
 
+        val hack2_logo = mapOf(1 to "logo_hof2_1", 2 to "logo_hof2_2", 3 to "logo_hof2_3", 4 to "logo_hof2_4")
+        val hof2Logo = hack2_logo[(1..4).random()] ?: "logo_hof_4"
+        val hof2LogoId = resources.getIdentifier(hof2Logo, "drawable", requireContext().packageName)
+        binding.hof2Logo.setImageResource(hof2LogoId)
+
         val college_logo = mapOf(1 to "logo_pillai", 2 to "logo_mes")
         val collegeLogo = college_logo[(1..2).random()] ?: "logo_pillai"
         val collegeLogoId =
@@ -91,6 +96,10 @@ class AboutFragment : Fragment() {
         binding.hofLogo.scaleX = 0f
         binding.hofLogo.scaleY = 0f
         binding.hofLogo.animate().scaleX(1f).scaleY(1f).setDuration(1000).setStartDelay(400).start()
+
+        binding.hof2Logo.scaleX = 0f
+        binding.hof2Logo.scaleY = 0f
+        binding.hof2Logo.animate().scaleX(1f).scaleY(1f).setDuration(1000).setStartDelay(400).start()
 
         binding.collegeLogo.scaleX = 0f
         binding.collegeLogo.scaleY = 0f
